@@ -1,0 +1,292 @@
+labuser@labuser-virtual-machine:~/test$ git version
+git version 2.34.1
+labuser@labuser-virtual-machine:~/test$ mkdir tests
+labuser@labuser-virtual-machine:~/test$ cd tests
+labuser@labuser-virtual-machine:~/test/tests$ get init
+Command 'get' not found, but there are 18 similar ones.
+labuser@labuser-virtual-machine:~/test/tests$ git init
+Initialized empty Git repository in /home/labuser/test/tests/.git/
+labuser@labuser-virtual-machine:~/test/tests$ git config -global init.defaultBranch master
+error: did you mean `--global` (with two dashes)?
+labuser@labuser-virtual-machine:~/test/tests$ git config  --global init.defaultBranch master
+labuser@labuser-virtual-machine:~/test/tests$ git init
+Reinitialized existing Git repository in /home/labuser/test/tests/.git/
+labuser@labuser-virtual-machine:~/test/tests$ echo "tests" > test1
+labuser@labuser-virtual-machine:~/test/tests$ ls -l
+total 4
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 04:36 test1
+labuser@labuser-virtual-machine:~/test/tests$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test1
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test/tests$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+labuser@labuser-virtual-machine:~/test/tests$ git add .
+labuser@labuser-virtual-machine:~/test/tests$ git commit
+Aborting commit due to empty commit message.
+labuser@labuser-virtual-machine:~/test/tests$ git commit -m "this is the first test file"
+[master (root-commit) f8ec978] this is the first test file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+labuser@labuser-virtual-machine:~/test/tests$ git remote add origin https://github.com/bodapatisindhuri/git_commands.git
+labuser@labuser-virtual-machine:~/test/tests$ git remote -v
+origin	https://github.com/bodapatisindhuri/git_commands.git (fetch)
+origin	https://github.com/bodapatisindhuri/git_commands.git (push)
+labuser@labuser-virtual-machine:~/test/tests$ git push -u origin master
+Username for 'https://github.com': sindhu
+Password for 'https://sindhu@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/bodapatisindhuri/git_commands.git/'
+labuser@labuser-virtual-machine:~/test/tests$ git push -u origin master
+Username for 'https://github.com': sindhu
+Password for 'https://sindhu@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 233 bytes | 233.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/bodapatisindhuri/git_commands.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test/tests$ ls
+test1
+labuser@labuser-virtual-machine:~/test/tests$ nano tests
+labuser@labuser-virtual-machine:~/test/tests$ git add .
+labuser@labuser-virtual-machine:~/test/tests$ git commit -m "this is the second file"
+[master 372a75a] this is the second file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 tests
+labuser@labuser-virtual-machine:~/test/tests$ push -u origin master 
+Command 'push' not found, did you mean:
+  command 'pwsh' from snap powershell (7.4.6)
+  command 'ppsh' from deb ppsh (1.10-1build3.1)
+  command 'rush' from deb rush (1.8+dfsg-1.1)
+  command 'posh' from deb posh (0.14.1)
+  command 'pdsh' from deb pdsh (2.31-3build2)
+See 'snap info <snapname>' for additional versions.
+labuser@labuser-virtual-machine:~/test/tests$ git push -u origin master 
+Username for 'https://github.com': sindhu
+Password for 'https://sindhu@github.com': 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 286 bytes | 286.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/bodapatisindhuri/git_commands.git
+   f8ec978..372a75a  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test/tests$ git branch
+* master
+labuser@labuser-virtual-machine:~/test/tests$ git branch devops1
+labuser@labuser-virtual-machine:~/test/tests$ git checkout devops1
+Switched to branch 'devops1'
+labuser@labuser-virtual-machine:~/test/tests$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test/tests$ echo "test3" > file1
+labuser@labuser-virtual-machine:~/test/tests$ echo "test4" > file2
+labuser@labuser-virtual-machine:~/test/tests$ ls -l
+total 16
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 04:52 file1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 04:52 file2
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 04:36 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 04:47 tests
+labuser@labuser-virtual-machine:~/test/tests$ git add .
+labuser@labuser-virtual-machine:~/test/tests$ git commit -m "this is the third file"
+[devops1 3a962c6] this is the third file
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test/tests$ git push -u origin devops1
+Username for 'https://github.com': sindhu
+Password for 'https://sindhu@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 356 bytes | 356.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops1' on GitHub by visiting:
+remote:      https://github.com/bodapatisindhuri/git_commands/pull/new/devops1
+remote: 
+To https://github.com/bodapatisindhuri/git_commands.git
+ * [new branch]      devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test/tests$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test/tests$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test/tests$ git merge devops1
+Updating 372a75a..3a962c6
+Fast-forward
+ file1 | 1 +
+ file2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test/tests$ git log -p
+commit 3a962c62cd2555c5b1b35d62dad338a6dd5f2dd0 (HEAD -> master, origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:53:55 2024 -0500
+
+    this is the third file
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
++++ b/file1
++++ b/file1
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit 372a75af4f25e089f5d8e4c267c34db86c484389 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:48:18 2024 -0500
+
+    this is the second file
+
+diff --git a/tests b/tests
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/tests
+@@ -0,0 +1 @@
++test1
+
+commit f8ec9782ac810ff6d46785584b469354fe851dd4
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:37:39 2024 -0500
+
+    this is the first test file
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..2b29f27
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++tests
+labuser@labuser-virtual-machine:~/test/tests$ git log --oneline
+3a962c6 (HEAD -> master, origin/devops1, devops1) this is the third file
+372a75a (origin/master) this is the second file
+f8ec978 this is the first test file
+labuser@labuser-virtual-machine:~/test/tests$ cd
+labuser@labuser-virtual-machine:~$ https://github.com/bodapatisindhuri/git_commands.git
+bash: https://github.com/bodapatisindhuri/git_commands.git: No such file or directory
+labuser@labuser-virtual-machine:~$ git clone https://github.com/bodapatisindhuri/git_commands.git
+Cloning into 'git_commands'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 10 (delta 0), reused 10 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+labuser@labuser-virtual-machine:~$ ls -l
+total 56
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+drwxr-xr-x 2 labuser labuser 4096 Dec 18  2023 Downloads
+-rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:05 git_commands
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+drwxrwxr-x 4 labuser labuser 4096 Dec 14 04:32 test
+drwxrwxr-x 3 labuser labuser 4096 Dec 14 01:27 test1
+drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd labtests
+bash: cd: labtests: No such file or directory
+labuser@labuser-virtual-machine:~$ cd tests
+bash: cd: tests: No such file or directory
+labuser@labuser-virtual-machine:~$ cd git_commands
+labuser@labuser-virtual-machine:~/git_commands$ ls -l
+total 8
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:05 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:05 tests
+labuser@labuser-virtual-machine:~/git_commands$ mkdir dev1
+labuser@labuser-virtual-machine:~/git_commands$ cd dev1
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git pull https://github.com/bodapatisindhuri/git_commands.git
+From https://github.com/bodapatisindhuri/git_commands
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git init .
+Initialized empty Git repository in /home/labuser/git_commands/dev1/.git/
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git pull https://github.com/bodapatisindhuri/git_commands.git
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 467 bytes | 467.00 KiB/s, done.
+From https://github.com/bodapatisindhuri/git_commands
+ * branch            HEAD       -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/git_commands/dev1$ branch
+Command 'branch' not found, but can be installed with:
+sudo apt install rheolef
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/git_commands/dev1$ ls -l
+total 8
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 tests
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git chechout m1
+git: 'chechout' is not a git command. See 'git --help'.
+
+The most similar command is
+	checkout
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/git_commands/dev1$ ls -l
+total 8
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 tests
+labuser@labuser-virtual-machine:~/git_commands/dev1$ echo "apple1" > fruit
+labuser@labuser-virtual-machine:~/git_commands/dev1$ ls -l
+total 12
+-rw-rw-r-- 1 labuser labuser 7 Dec 14 05:12 fruit
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 tests
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/git_commands/dev1$ ls -l
+total 12
+-rw-rw-r-- 1 labuser labuser 7 Dec 14 05:12 fruit
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 tests
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/git_commands/dev1$ ls -l
+total 12
+-rw-rw-r-- 1 labuser labuser 7 Dec 14 05:12 fruit
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 test1
+-rw-rw-r-- 1 labuser labuser 6 Dec 14 05:10 tests
+labuser@labuser-virtual-machine:~/git_commands/dev1$ git rebase master
+Current branch m1 is up to date.
+labuser@labuser-virtual-machine:~/git_commands/dev1$ 
+
+
